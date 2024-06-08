@@ -1,0 +1,46 @@
+<form>
+
+    <select name="" id="">
+        <option *ngFor="let regiao of oceanos" value="1">{{regiao.regiao.concat}}</option>
+    </select>
+    
+    <!-- <label for="">regiao</label>
+    <input type="text" name="regiao" id="regiao">
+
+    <label for="">Especies</label>
+    <input type="text" name="especie" id="especies">
+
+    <label for="">Status</label>
+    <input type="text" name="status" id="status">
+
+    <label for="">temperaturaAgua</label>
+    <input type="text" name="tempAgua" id="tempAgua">
+
+    <label for="">ph</label>
+    <input type="text" name="ph" id="ph">
+
+    <label for="">niveis de Poluicao</label>
+    <input type="text" name="poluicao" id="poluicao">
+
+
+    <button type=""></button> -->
+
+</form>
+
+<div *ngFor="let regiao of oceanos">
+    <p><b>Nome regiao: </b>{{regiao.regiao}}</p>
+    <p><b>nivelPoluicao: </b>{{regiao.nivelPoluicao}}</p>
+    <p><b>Projetos: </b></p>
+    <div *ngFor="let projeto of regiao.projetosConservacao">
+        <p>Nome do Projeto: {{projeto.nomeProjeto}}</p>
+        <p>Tipo do Projeto: {{projeto.tipoProjeto}}</p>
+        <p>Tipo do Particição: {{projeto.tipoParticipacao}}</p>
+    </div>
+    <p><b>Temperatura da Aguá: </b>{{regiao.temperaturaAgua}}</p>
+    <p><b>Ph: </b>{{regiao.pH}}</p>
+    <p><b>Especies</b></p>
+    <div *ngFor="let especie of regiao.especies">
+        <p>Nome da Especie: {{especie.nome}}</p>
+        <p>Status: {{especie.status}}</p>
+    </div>
+</div>
