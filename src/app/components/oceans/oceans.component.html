@@ -45,9 +45,13 @@
           <option *ngFor="let poluicao of niveisPoluicao" [value]="poluicao">{{poluicao}}</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div>
+        <button type="submit" class="btn btn-primary botao">Filtrar</button>
+      </div>
     </fieldset>
   </form>
+  
+  <button class="btn btn-danger botao" (click)="retirarFiltro()">Retirar filtros</button>
 
   <hr>
 

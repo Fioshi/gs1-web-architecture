@@ -57,8 +57,6 @@ export class OceansComponent {
       const matchPoluicao = !poluicao || oceano.nivelPoluicao == poluicao
       return matchRegiao && matchEspecie && matchStatus && matchTempAgua && matchPh && matchPoluicao;
     });
-
-    this.oceanosFiltrado.forEach(oce => console.log(oce.regiao));
     this.oceanos = this.oceanosFiltrado;
   }
 
@@ -93,8 +91,7 @@ export class OceansComponent {
     });
   }
 
-  modalContent: string = ''
-  openModal(): void {
-    this.modalContent = 'Informações que você deseja exibir';
+  retirarFiltro(){
+    this.oceanos = this.oceanosBackup;
   }
 }
