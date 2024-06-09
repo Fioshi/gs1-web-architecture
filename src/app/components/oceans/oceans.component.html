@@ -8,19 +8,19 @@
         </select>
       </div>
       <div class="mb-3">
-        <label for="especie" class="form-label">Especie</label>
+        <label for="especie" class="form-label">Espécie</label>
         <select id="especie" formControlName="especie" class="form-select">
           <option *ngFor="let especie of especiesFiltradas" [value]="especie">{{especie}}</option>
         </select>
       </div>
       <div class="mb-3">
-        <label for="status" class="form-label">Status de conservação da especie</label>
+        <label for="status" class="form-label">Status de conservação da espécie</label>
         <select id="status" formControlName="status" class="form-select">
           <option *ngFor="let status of statusEspecies" [value]="status">{{status}}</option>
         </select>
       </div>
       <div class="mb-3">
-        <label for="tempAgua" class="form-label">Temperatura da Aguá</label>
+        <label for="tempAgua" class="form-label">Temperatura da Água</label>
         <select id="tempAgua" formControlName="tempAgua" class="form-select">
           <option value="5">1 e 5</option>
           <option value="10">6 e 10</option>
@@ -40,7 +40,7 @@
         </select>
       </div>
       <div class="mb-3">
-        <label for="poluicao" class="form-label">Nivel de poluição</label>
+        <label for="poluicao" class="form-label">Nível de poluição</label>
         <select id="poluicao" formControlName="poluicao" class="form-select">
           <option *ngFor="let poluicao of niveisPoluicao" [value]="poluicao">{{poluicao}}</option>
         </select>
@@ -48,19 +48,19 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </fieldset>
   </form>
-  
+
   <hr>
-  
+
   <div>
     <table class="table">
       <thead>
         <tr>
           <th scope="col">#</th>
           <th scope="col">Região</th>
-          <th scope="col">Nivel de Poluição</th>
-          <th scope="col">Temeratura da Aguá</th>
+          <th scope="col">Nível de Poluição</th>
+          <th scope="col">Temperatura da Água</th>
           <th scope="col">pH</th>
-          <th scope="col">especies</th>
+          <th scope="col">Espécies</th>
           <th scope="col">Projetos</th>
         </tr>
       </thead>
@@ -74,14 +74,14 @@
           <td>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal"
               [attr.data-bs-target]="'#staticBackdrop' + i">
-              Ver Especies
+              Ver Espécies
             </button>
             <div class="modal fade" [id]="'staticBackdrop' + i" data-bs-backdrop="static" data-bs-keyboard="false"
               tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog modal-dialog-centered">
                 <div class="modal-content modal-dialog modal-dialog-centered">
                   <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Especies</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Espécies</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
@@ -89,8 +89,8 @@
                       <div>
                         <div class="">
                           <div *ngFor="let especie of regiao.especies">
-                            <p><b>Nome do especie:</b> {{ especie.nome }}</p>
-                            <p><b>estatus do especie:</b> {{ especie.status }}</p>
+                            <p><b>Nome do espécie:</b> {{ especie.nome }}</p>
+                            <p><b>estatus do espécie:</b> {{ especie.status }}</p>
                             <hr>
                           </div>
                         </div>
@@ -98,39 +98,41 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                   </div>
                 </div>
               </div>
             </div>
-  
+
           </td>
           <td>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#projetosModal' + i">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+              [attr.data-bs-target]="'#projetosModal' + i">
               Ver projetos
-          </button>
-          <div class="modal fade" [id]="'projetosModal' + i" tabindex="-1" aria-labelledby="projetosModalLabel" aria-hidden="true">
+            </button>
+            <div class="modal fade" [id]="'projetosModal' + i" tabindex="-1" aria-labelledby="projetosModalLabel"
+              aria-hidden="true">
               <div class="modal-dialog modal-dialog modal-dialog-centered">
-                  <div class="modal-content modal-dialog modal-dialog-centered">
-                      <div class="modal-header ">
-                          <h5 class="modal-title" id="projetosModalLabel">Projetos</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                          <!-- Conteúdo do modal -->
-                          <div *ngFor="let projeto of regiao.projetosConservacao">
-                              <p><b>Nome do projeto:</b> {{ projeto.nomeProjeto }}</p>
-                              <p><b>Tipo do projeto:</b> {{ projeto.tipoProjeto }}</p>
-                              <p><b>Tipo de participação:</b> {{ projeto.tipoParticipacao }}</p>
-                              <hr>
-                          </div>
-                      </div>
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                      </div>
+                <div class="modal-content modal-dialog modal-dialog-centered">
+                  <div class="modal-header ">
+                    <h5 class="modal-title" id="projetosModalLabel">Projetos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
+                  <div class="modal-body">
+                    <!-- Conteúdo do modal -->
+                    <div *ngFor="let projeto of regiao.projetosConservacao">
+                      <p><b>Nome do projeto:</b> {{ projeto.nomeProjeto }}</p>
+                      <p><b>Tipo do projeto:</b> {{ projeto.tipoProjeto }}</p>
+                      <p><b>Tipo de participação:</b> {{ projeto.tipoParticipacao }}</p>
+                      <hr>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
               </div>
-          </div>
+            </div>
         </tr>
       </tbody>
     </table>
