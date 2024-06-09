@@ -79,7 +79,7 @@
             <div class="modal fade" [id]="'staticBackdrop' + i" data-bs-backdrop="static" data-bs-keyboard="false"
               tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content modal-dialog modal-dialog-centered">
                   <div class="modal-header">
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Especies</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -106,39 +106,31 @@
   
           </td>
           <td>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-              [attr.data-bs-target]="'#staticBackdrop' + i">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" [attr.data-bs-target]="'#projetosModal' + i">
               Ver projetos
-            </button>
-            <div class="modal fade" [id]="'staticBackdrop' + i" data-bs-backdrop="static" data-bs-keyboard="false"
-              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          </button>
+          <div class="modal fade" [id]="'projetosModal' + i" tabindex="-1" aria-labelledby="projetosModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Projetos</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="d-inline-flex gap-1">
-                      <div>
-                        <div class="">
-                          <div *ngFor="let projeto of regiao.projetosConservacao">
-                            <p><b>Nome do especie:</b> {{ projeto.nomeProjeto }}</p>
-                            <p><b>estatus do especie:</b> {{ projeto.tipoParticipacao }}</p>
-                            <p><b>estatus do especie:</b> {{ projeto.tipoProjeto }}</p>
-                            <hr>
-                          </div>
-                        </div>
+                  <div class="modal-content modal-dialog modal-dialog-centered">
+                      <div class="modal-header ">
+                          <h5 class="modal-title" id="projetosModalLabel">Projetos</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
-                    </div>
+                      <div class="modal-body">
+                          <!-- Conteúdo do modal -->
+                          <div *ngFor="let projeto of regiao.projetosConservacao">
+                              <p><b>Nome do projeto:</b> {{ projeto.nomeProjeto }}</p>
+                              <p><b>Tipo do projeto:</b> {{ projeto.tipoProjeto }}</p>
+                              <p><b>Tipo de participação:</b> {{ projeto.tipoParticipacao }}</p>
+                              <hr>
+                          </div>
+                      </div>
+                      <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                      </div>
                   </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  </div>
-                </div>
               </div>
-            </div>
-          </td>
+          </div>
         </tr>
       </tbody>
     </table>
