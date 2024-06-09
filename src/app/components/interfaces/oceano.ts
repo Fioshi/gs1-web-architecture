@@ -1,9 +1,9 @@
-interface Especie {
+  export interface Especie {
     nome: string;
     status: string;
   }
   
-  interface ProjetoConservacao {
+  export interface ProjetoConservacao {
     nomeProjeto: string;
     tipoProjeto: string;
     tipoParticipacao: string;

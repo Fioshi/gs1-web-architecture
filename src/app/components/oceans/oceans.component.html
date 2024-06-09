@@ -1,46 +1,146 @@
-<form>
-
-    <select name="" id="">
-        <option *ngFor="let regiao of oceanos" value="1">{{regiao.regiao.concat}}</option>
-    </select>
-    
-    <!-- <label for="">regiao</label>
-    <input type="text" name="regiao" id="regiao">
-
-    <label for="">Especies</label>
-    <input type="text" name="especie" id="especies">
-
-    <label for="">Status</label>
-    <input type="text" name="status" id="status">
-
-    <label for="">temperaturaAgua</label>
-    <input type="text" name="tempAgua" id="tempAgua">
-
-    <label for="">ph</label>
-    <input type="text" name="ph" id="ph">
-
-    <label for="">niveis de Poluicao</label>
-    <input type="text" name="poluicao" id="poluicao">
-
-
-    <button type=""></button> -->
-
-</form>
-
-<div *ngFor="let regiao of oceanos">
-    <p><b>Nome regiao: </b>{{regiao.regiao}}</p>
-    <p><b>nivelPoluicao: </b>{{regiao.nivelPoluicao}}</p>
-    <p><b>Projetos: </b></p>
-    <div *ngFor="let projeto of regiao.projetosConservacao">
-        <p>Nome do Projeto: {{projeto.nomeProjeto}}</p>
-        <p>Tipo do Projeto: {{projeto.tipoProjeto}}</p>
-        <p>Tipo do Particição: {{projeto.tipoParticipacao}}</p>
-    </div>
-    <p><b>Temperatura da Aguá: </b>{{regiao.temperaturaAgua}}</p>
-    <p><b>Ph: </b>{{regiao.pH}}</p>
-    <p><b>Especies</b></p>
-    <div *ngFor="let especie of regiao.especies">
-        <p>Nome da Especie: {{especie.nome}}</p>
-        <p>Status: {{especie.status}}</p>
-    </div>
-</div>
+<main class="main">
+  <form [formGroup]="filtroForm" (ngSubmit)="filtrar()">
+    <fieldset [disabled]="">
+      <div class="mb-3">
+        <label for="regiao" class="form-label">Região</label>
+        <select id="regiao" formControlName="regiao" class="form-select">
+          <option *ngFor="let regiao of regioes" [value]="regiao">{{regiao}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="especie" class="form-label">Especie</label>
+        <select id="especie" formControlName="especie" class="form-select">
+          <option *ngFor="let especie of especiesFiltradas" [value]="especie">{{especie}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="status" class="form-label">Status de conservação da especie</label>
+        <select id="status" formControlName="status" class="form-select">
+          <option *ngFor="let status of statusEspecies" [value]="status">{{status}}</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="tempAgua" class="form-label">Temperatura da Aguá</label>
+        <select id="tempAgua" formControlName="tempAgua" class="form-select">
+          <option value="5">1 e 5</option>
+          <option value="10">6 e 10</option>
+          <option value="15">11 e 15</option>
+          <option value="20">16 e 20</option>
+          <option value="25">21 e 25</option>
+          <option value="30">26 e 30</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="ph" class="form-label">pH</label>
+        <select id="ph" formControlName="ph" class="form-select">
+          <option value="7.3">7.1 a 7.3</option>
+          <option value="7.6">7.4 a 7.6</option>
+          <option value="8.0">7.7 a 8.0</option>
+          <option value="8.3">8.1 a 8.3</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="poluicao" class="form-label">Nivel de poluição</label>
+        <select id="poluicao" formControlName="poluicao" class="form-select">
+          <option *ngFor="let poluicao of niveisPoluicao" [value]="poluicao">{{poluicao}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </fieldset>
+  </form>
+  
+  <hr>
+  
+  <div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Região</th>
+          <th scope="col">Nivel de Poluição</th>
+          <th scope="col">Temeratura da Aguá</th>
+          <th scope="col">pH</th>
+          <th scope="col">especies</th>
+          <th scope="col">Projetos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let regiao of oceanos; let i = index">
+          <th scope="row"></th>
+          <td>{{ regiao.regiao }}</td>
+          <td>{{ regiao.nivelPoluicao }}</td>
+          <td>{{ regiao.temperaturaAgua }}</td>
+          <td>{{ regiao.pH }}</td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+              [attr.data-bs-target]="'#staticBackdrop' + i">
+              Ver Especies
+            </button>
+            <div class="modal fade" [id]="'staticBackdrop' + i" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Especies</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="d-inline-flex gap-1">
+                      <div>
+                        <div class="">
+                          <div *ngFor="let especie of regiao.especies">
+                            <p><b>Nome do especie:</b> {{ especie.nome }}</p>
+                            <p><b>estatus do especie:</b> {{ especie.status }}</p>
+                            <hr>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </td>
+          <td>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+              [attr.data-bs-target]="'#staticBackdrop' + i">
+              Ver projetos
+            </button>
+            <div class="modal fade" [id]="'staticBackdrop' + i" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Projetos</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="d-inline-flex gap-1">
+                      <div>
+                        <div class="">
+                          <div *ngFor="let projeto of regiao.projetosConservacao">
+                            <p><b>Nome do especie:</b> {{ projeto.nomeProjeto }}</p>
+                            <p><b>estatus do especie:</b> {{ projeto.tipoParticipacao }}</p>
+                            <p><b>estatus do especie:</b> {{ projeto.tipoProjeto }}</p>
+                            <hr>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
