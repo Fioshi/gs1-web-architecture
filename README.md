@@ -29,15 +29,15 @@ Acesse `http://localhost:4200/` no seu navegador para ver o aplicativo.
 
 ## Prints da Aplicação 📷
 
-![Captura de Tela 1](https://cdn.discordapp.com/attachments/926330431631163392/1249391943746846812/image.png?ex=6667226b&is=6665d0eb&hm=67e0328a5eed0e88c95a7465ad14576e13250720c139ef9000257e992b82efe1&)
+![Captura de Tela 1](https://media.discordapp.net/attachments/926330431631163392/1249391943746846812/image.png?ex=668d5deb&is=668c0c6b&hm=c2ce13826943363ffc16f72efc89444402988fc7258c2c003229b91c8c19bbfd&=&format=webp&quality=lossless&width=1370&height=662)
 *Captura da dashboard inicial do projeto*
 
-![Captura de Tela 2](https://cdn.discordapp.com/attachments/926330431631163392/1249392512599064639/image.png?ex=666722f3&is=6665d173&hm=afa3f5e226a74d5e775556b2af5f7c17bb1058d6f033fe1b38fcfff65814e5d9&)
+![Captura de Tela 2](https://media.discordapp.net/attachments/926330431631163392/1249392512599064639/image.png?ex=668d5e73&is=668c0cf3&hm=c45e5c34793c23347f56c59b89a1cc603e2eaf4d1d32b1665afaeb70a9e5cd04&=&format=webp&quality=lossless&width=1343&height=662)
 *Opção de "ver projetos" da aplicação*
 
-![Captura de Tela 2](https://cdn.discordapp.com/attachments/926330431631163392/1249392560389226597/image.png?ex=666722fe&is=6665d17e&hm=db1210f718ba9377a2f1be206e2bab69324a7c3f67c39b9c967e033feeaf8eb9&)
+![Captura de Tela 2](https://media.discordapp.net/attachments/926330431631163392/1249392560389226597/image.png?ex=668d5e7e&is=668c0cfe&hm=492325e2eb791d641d39932ca8e9d8c9e61de0e51c47270906353f3bca670061&=&format=webp&quality=lossless&width=1305&height=662)
 *Opção de "ver especies" da aplicação*
 
-![Captura de Tela 2](https://cdn.discordapp.com/attachments/926330431631163392/1249392692434042922/image.png?ex=6667231e&is=6665d19e&hm=cd8cda1dd93a4c876dbe217786ea86eb6023d8de72c9e9fbbac026c328f51b4c&)
+![Captura de Tela 2](https://media.discordapp.net/attachments/926330431631163392/1249392692434042922/image.png?ex=668d5e9e&is=668c0d1e&hm=f882dc012e4011fe6ee0ba79c9ec32b2b1bc98dd7879eedfa33814a00610426d&=&format=webp&quality=lossless&width=1440&height=646)
 *Todos os filtros aplicados e seu resultado*
 
